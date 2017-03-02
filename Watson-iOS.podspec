@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'Watson-iOS'
-s.version          = '0.1.0'
+s.version          = '0.1.1'
 s.summary          = 'Device utility framework that scans for availability of all the important features & info'
 s.description      = <<-DESC
 Device utility framework that scans for availability of all the important features & info like Battery stats, device model, operating system etc.
