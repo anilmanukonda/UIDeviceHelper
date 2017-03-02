@@ -8,52 +8,72 @@
 import Foundation
 import UIKit
 
-public enum DeviceOSVersion {
-    case iOS_9_below
-    case iOS_9_or_above
-    case iOS_10
-    case iOS_11_or_above
-    case iOS_unknown
-    
-    func description() -> String {
-        return ProcessInfo.processInfo.operatingSystemVersionString
-    }
+protocol WatsonInfo {}
+extension Bool: WatsonInfo {}
+
+public struct BatteryStats: WatsonInfo {
+    var batteryLevel: Float = 0.0
+    var batteryState: UIDeviceBatteryState = .unknown
+    var isLowPowermodeEnabled: Bool = false
 }
 
-public enum DeviceModel {
-    //case
-}
-
-public class Watson {
+public struct Watson {
     
-    let agent = Watson()
-    public let deviceOS: DeviceOSVersion
-    public let deviceModel: DeviceModel
+    private static let isSimulator: Bool = {
+        var isSim = false
+        #if arch(i386) || arch(x86_64)
+            isSim = true
+        #endif
+        return isSim
+    }()
     
-    private init() {
-        deviceOS = iOSVersion()
-    }
+    private static var deviceInfo: DeviceInfo?
+    static var batteryStats: BatteryStats?
+    static var isBeaconsSupported = false
+    static var is3DTouchSupported = false
+    static var isLocationEnabled = false
+    static var isProximityEnabled = false
+    static var hasTouchId = false
+    private init() {}
     
-    func iOSVersion() -> DeviceOSVersion {
-        
-        let processInfo = ProcessInfo.processInfo
-        switch (processInfo.operatingSystemVersion.majorVersion) {
-        case (4..<9):
-            return .iOS_9_below
-        case (9):
-            return .iOS_9_or_above
-        case (10):
-            return .iOS_10
-        case (11...15):
-            return .iOS_11_or_above
-        default:
-            return .iOS_unknown
+    static func scan(_ properties: DeviceProperties...) {
+        debugPrint("Watson is starting investigation...🕵🏻")
+        guard isSimulator else {
+            debugPrint("Sorry..too busy playing crime tycoon on iOS simulator")
+            return
         }
+        for property in properties {
+            switch property {
+            case .battery:
+                debugPrint("Recharging your battery...🔋")
+                batteryStats = property.details()
+            case .beacons:
+                debugPrint("Checking for wireless bugs...🔌🔉")
+                isBeaconsSupported = property.details() ?? false
+            case .deviceInfo:
+                debugPrint("Gathering device details... easy there... not your passwords📱")
+                deviceInfo = property.details()
+            case .forceTouch:
+                debugPrint("Force touch or 3D touch...fat fingers📲")
+                is3DTouchSupported = property.details() ?? false
+            case .location:
+                debugPrint("Locating you...just kidding🗺")
+                isLocationEnabled = property.details() ?? false
+            case .proximityMonitoring:
+                isProximityEnabled = property.details() ?? false
+            case .touchId:
+                debugPrint("Gathering finger prints🖕🏼")
+                hasTouchId = property.details() ?? false
+            }
+        }
+        debugPrint("Case closed...🕵🏻")
     }
     
+    static func operatingSystem() -> DeviceInfo.DeviceOS {
+        return deviceInfo?.operatingSystem ?? .iOSUnknown
+    }
     
-    func deviceType() {
-        debugPrint(ProcessInfo.processInfo.operatingSystemVersionString)
-        debugPrint(ProcessInfo.processInfo.operatingSystemVersion)
+    static func deviceModel() -> DeviceModel {
+        return deviceInfo?.deviceModel ?? .other
     }
 }

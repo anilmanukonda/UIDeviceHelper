@@ -9,11 +9,21 @@
 /* Begin PBXBuildFile section */
 		DB2A5ACE1E6770FE0061B977 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB2A5ACC1E6770FE0061B977 /* Info.plist */; };
 		DB2A5ACF1E6770FE0061B977 /* Watson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2A5ACD1E6770FE0061B977 /* Watson.swift */; };
+		DB73D95A1E68AA2500A15636 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB73D9591E68AA2500A15636 /* DeviceInfo.swift */; };
+		DB73D95C1E68AADC00A15636 /* DeviceProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB73D95B1E68AADC00A15636 /* DeviceProperties.swift */; };
+		DB73D9621E68C93D00A15636 /* DeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB73D9611E68C93D00A15636 /* DeviceModel.swift */; };
+		DB73D9641E68D7D400A15636 /* BatteryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB73D9631E68D7D300A15636 /* BatteryStats.swift */; };
+		DB73D96C1E68E1F800A15636 /* Watson.podspec in Resources */ = {isa = PBXBuildFile; fileRef = DB73D96B1E68E1F800A15636 /* Watson.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DB2A5ACC1E6770FE0061B977 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Watson/Info.plist; sourceTree = SOURCE_ROOT; };
 		DB2A5ACD1E6770FE0061B977 /* Watson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Watson.swift; path = Watson/Watson.swift; sourceTree = SOURCE_ROOT; };
+		DB73D9591E68AA2500A15636 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceInfo.swift; path = Watson/DeviceInfo.swift; sourceTree = SOURCE_ROOT; };
+		DB73D95B1E68AADC00A15636 /* DeviceProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceProperties.swift; path = Watson/DeviceProperties.swift; sourceTree = SOURCE_ROOT; };
+		DB73D9611E68C93D00A15636 /* DeviceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeviceModel.swift; path = Watson/DeviceModel.swift; sourceTree = SOURCE_ROOT; };
+		DB73D9631E68D7D300A15636 /* BatteryStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BatteryStats.swift; path = Watson/BatteryStats.swift; sourceTree = SOURCE_ROOT; };
+		DB73D96B1E68E1F800A15636 /* Watson.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Watson.podspec; path = ../../Watson.podspec; sourceTree = "<group>"; };
 		DBD7FBA21E5CC62A00179663 /* Watson.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Watson.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -47,8 +57,13 @@
 		DBD7FBA41E5CC62A00179663 /* Watson */ = {
 			isa = PBXGroup;
 			children = (
+				DB73D96B1E68E1F800A15636 /* Watson.podspec */,
 				DB2A5ACC1E6770FE0061B977 /* Info.plist */,
 				DB2A5ACD1E6770FE0061B977 /* Watson.swift */,
+				DB73D9591E68AA2500A15636 /* DeviceInfo.swift */,
+				DB73D95B1E68AADC00A15636 /* DeviceProperties.swift */,
+				DB73D9611E68C93D00A15636 /* DeviceModel.swift */,
+				DB73D9631E68D7D300A15636 /* BatteryStats.swift */,
 			);
 			name = Watson;
 			path = UIDeviceHelper;
@@ -123,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB73D96C1E68E1F800A15636 /* Watson.podspec in Resources */,
 				DB2A5ACE1E6770FE0061B977 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +151,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB2A5ACF1E6770FE0061B977 /* Watson.swift in Sources */,
+				DB73D9621E68C93D00A15636 /* DeviceModel.swift in Sources */,
+				DB73D95A1E68AA2500A15636 /* DeviceInfo.swift in Sources */,
+				DB73D9641E68D7D400A15636 /* BatteryStats.swift in Sources */,
+				DB73D95C1E68AADC00A15636 /* DeviceProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
