@@ -11,12 +11,6 @@ import UIKit
 protocol WatsonInfo {}
 extension Bool: WatsonInfo {}
 
-public struct BatteryStats: WatsonInfo {
-    var batteryLevel: Float = 0.0
-    var batteryState: UIDeviceBatteryState = .unknown
-    var isLowPowermodeEnabled: Bool = false
-}
-
 public struct Watson {
     
     private static let isSimulator: Bool = {

@@ -2,7 +2,6 @@
 //  DeviceProperties.swift
 //  Watson
 //
-//  Created by Manukonda, Anil-CW on 3/2/17.
 //  Copyright © 2017 Anil. All rights reserved.
 //
 
