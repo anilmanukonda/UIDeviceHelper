@@ -46,7 +46,7 @@ public enum DeviceProperties {
         }
     }
 
-    static func all() -> [DeviceProperties] {
+    public static func all() -> [DeviceProperties] {
         return [.battery, .deviceInfo, .forceTouch, .touchId, .proximityMonitoring, .beacons, .location]
     }
 }
