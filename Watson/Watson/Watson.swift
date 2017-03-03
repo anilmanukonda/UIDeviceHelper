@@ -22,15 +22,15 @@ public struct Watson {
     }()
     
     private static var deviceInfo: DeviceInfo?
-    static var batteryStats: BatteryStats?
-    static var isBeaconsSupported = false
-    static var is3DTouchSupported = false
-    static var isLocationEnabled = false
-    static var isProximityEnabled = false
-    static var hasTouchId = false
+    public static var batteryStats: BatteryStats?
+    public static var isBeaconsSupported = false
+    public static var is3DTouchSupported = false
+    public static var isLocationEnabled = false
+    public static var isProximityEnabled = false
+    public static var hasTouchId = false
     private init() {}
     
-    static func scan(_ properties: DeviceProperties...) {
+    public static func scan(_ properties: DeviceProperties...) {
         debugPrint("Watson is starting investigation...🕵🏻")
         guard isSimulator else {
             debugPrint("Sorry..too busy playing crime tycoon on iOS simulator")
@@ -63,11 +63,11 @@ public struct Watson {
         debugPrint("Case closed...🕵🏻")
     }
     
-    static func operatingSystem() -> DeviceInfo.DeviceOS {
+    public static func operatingSystem() -> DeviceInfo.DeviceOS {
         return deviceInfo?.operatingSystem ?? .iOSUnknown
     }
     
-    static func deviceModel() -> DeviceModel {
+    public static func deviceModel() -> DeviceModel {
         return deviceInfo?.deviceModel ?? .other
     }
 }

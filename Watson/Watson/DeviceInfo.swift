@@ -9,7 +9,7 @@ import Foundation
 
 public struct DeviceInfo: WatsonInfo {
     
-    enum DeviceOS: WatsonInfo {
+    public enum DeviceOS: WatsonInfo {
         case iOSTooOld
         case iOS9
         case iOS9Variant
@@ -23,11 +23,11 @@ public struct DeviceInfo: WatsonInfo {
         }
     }
     
-    var operatingSystem: DeviceOS {
+    public var operatingSystem: DeviceOS {
         return self.osVersion()
     }
     
-    var deviceModel: DeviceModel {
+    public var deviceModel: DeviceModel {
         return DeviceModel.deviceModel(for: platform())
     }
     

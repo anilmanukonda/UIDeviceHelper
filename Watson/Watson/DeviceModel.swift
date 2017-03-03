@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DeviceModel: String {
+public enum DeviceModel: String {
     
     static var deviceMap: [String:[String]] {
         return [
